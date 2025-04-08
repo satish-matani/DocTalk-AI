@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocTalk AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Font Awesome for microphone icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Chat History Sidebar -->
+        <div class="chat-history" id="chat-history">
+            <div class="history-header">
+                <h3>Chat History</h3>
+                <button id="new-chat-btn">New Chat</button>
+            </div>
+            <div class="history-list" id="history-list"></div>
+        </div>
+        <!-- Main Chat Container -->
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="logo">DocTalk AI</div>
+                <div class="upload-section">
+                    <input type="file" id="pdf-upload" multiple accept=".pdf">
+                    <button onclick="uploadPDFs()">Upload PDFs</button>
+                </div>
+            </div>
+            <div class="chat-messages" id="messages"></div>
+            <div class="chat-input">
+                <textarea id="user-input" placeholder="Ask me anything..." rows="1" autofocus></textarea>
+                <button onclick="sendMessage()">Send</button>
+                <button onclick="startSpeech()" title="Speak"><i class="fas fa-microphone"></i></button>
+            </div>
+            <!-- Loading Screen for PDF Upload -->
+            <div class="loading-screen" id="loading">
+                <div class="spinner"></div>
+                <p>Processing your PDFs, please wait...</p>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
